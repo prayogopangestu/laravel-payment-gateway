@@ -1,0 +1,8 @@
+/.env
+/.phpunit.result.cache
+/bootstrap/cache/*.php
+/node_modules
+/storage/*.key
+/vendor
+npm-debug.log
+yarn-error.log
