@@ -12,11 +12,11 @@ REST API ini mengintegrasikan **Payment Gateway Midtrans** dengan **Charge Trans
 
 ## Teknologi
 
-| Teknologi | Versi |
-|-----------|-------|
-| Laravel | ^8.83 |
-| PHP | ^7.3 \| ^8.0 |
-| GuzzleHTTP | ^7.0.1 |
+| Teknologi  | Versi        |
+| ---------- | ------------ |
+| Laravel    | ^8.83        |
+| PHP        | ^7.3 \| ^8.0 |
+| GuzzleHTTP | ^7.0.1       |
 
 ## Persyaratan
 
@@ -49,11 +49,11 @@ MIDTRANS_CLIENT_KEY=SB-Mid-client-xxxxx
 
 ## Endpoint
 
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| `POST` | `/api/payments/midtrans/charge` | Membuat transaksi charge ke Midtrans |
-| `POST` | `/api/payments/midtrans/webhook` | Menerima notifikasi pembayaran dari Midtrans |
-| `GET` | `/api/payments/midtrans/transactions/{orderId}` | Melihat detail transaksi berdasarkan order ID |
+| Method | Endpoint                                        | Deskripsi                                     |
+| ------ | ----------------------------------------------- | --------------------------------------------- |
+| `POST` | `/api/payments/midtrans/charge`                 | Membuat transaksi charge ke Midtrans          |
+| `POST` | `/api/payments/midtrans/webhook`                | Menerima notifikasi pembayaran dari Midtrans  |
+| `GET`  | `/api/payments/midtrans/transactions/{orderId}` | Melihat detail transaksi berdasarkan order ID |
 
 ## Contoh Penggunaan
 
@@ -98,7 +98,7 @@ Content-Type: application/json
     "paid_at": null,
     "failed_at": null
   },
-  "midtrans": { }
+  "midtrans": {}
 }
 ```
 
@@ -132,16 +132,16 @@ GET /api/payments/midtrans/transactions/ORDER-001
 
 ## Pemetaan Status
 
-| Status Lokal | Kondisi dari Midtrans |
-|--------------|-----------------------|
-| `success` | `transaction_status` = `settlement` / `capture`, dan `fraud_status` kosong atau `accept` |
-| `pending` | Transaksi masih menunggu pembayaran |
-| `failed` | `transaction_status` = `deny`, `cancel`, `expire`, atau `failure` |
-| `challenge` | Kartu `capture` dengan `fraud_status` = `challenge` |
-| `refunded` | Refund atau chargeback |
+| Status Lokal | Kondisi dari Midtrans                                                                    |
+| ------------ | ---------------------------------------------------------------------------------------- |
+| `success`    | `transaction_status` = `settlement` / `capture`, dan `fraud_status` kosong atau `accept` |
+| `pending`    | Transaksi masih menunggu pembayaran                                                      |
+| `failed`     | `transaction_status` = `deny`, `cancel`, `expire`, atau `failure`                        |
+| `challenge`  | Kartu `capture` dengan `fraud_status` = `challenge`                                      |
+| `refunded`   | Refund atau chargeback                                                                   |
 
 ## Screenshot Sistem
 
-### Data Transaksi di Database
+### View Transaksi di Mitrans
 
 ![Data Payment Midtrans](screenshots/data-payment-midtrans.PNG)
